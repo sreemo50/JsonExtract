@@ -9,104 +9,54 @@ import java.util.Properties;
 public class TableOfCntnt {
 	private Properties properties;
 	private final String propertyFilePath = "..\\GProject\\Config\\config.properties";
-	public String IDname = "";
-	public String timePeriod = "";
-	public String AddedValues = "";
-	public String Explanations = "";
+	public String IIDname = "";
+	public String ttimePeriod = "";
+	public String AAddedValues = "";
+	public String EExplanations = "";
 
 	public void setIDname(String IDname) {
-		this.IDname = IDname;
+		IIDname = IDname;
 	}
 
 	public void settimePeriod(int timePeriod) {
 		switch(timePeriod)
 		{
 		   case 1 :
-			   this.timePeriod = "Samsung";		      
+			   ttimePeriod = "Samsung";		      
 		      break;
 		      
 		   case 2 :
-			   this.timePeriod = "LG";
+			   ttimePeriod = "LG";
 		      break; 		   
 		   
 		   default :
-			   this.timePeriod = "ONIDA";
+			   ttimePeriod = "ONIDA";
 		 
 		}		
 	}
 	
 	public void setAddedValues(String AddedValues) {
-		this.AddedValues = AddedValues;
+		AAddedValues = AddedValues;
 	}
 
 	public void setExplanations(String Explanations) {
-		this.AddedValues = Explanations;
+		EExplanations = Explanations;
 	}
 
 	public String getIDname() {
-		return this.IDname;
+		return IIDname;
 	}
 
 	public String gettimePeriod() {
-		return this.timePeriod;
+		return ttimePeriod;
 	}
 	
 	public String getAddedValues() {		
-		return this.AddedValues;
+		return AAddedValues;
 	}
 
 	public String getExplanations() {
-		return this.AddedValues;
-	}
-
-	public TableOfCntnt() {
-		BufferedReader reader;
-		try {
-			reader = new BufferedReader(new FileReader(propertyFilePath));
-			properties = new Properties();
-			try {
-				properties.load(reader);
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Configuration.properties not found at " + propertyFilePath);
-		}
-	}
-
-	public String getDriverPath() {
-
-		String driverpath = properties.getProperty("drverpath");
-
-		if (driverpath != null)
-			return driverpath;
-		else
-			throw new RuntimeException("please specify driver path in config");
-
-	}
-
-	public String getApplicationUrl() {
-
-		String appUrl = properties.getProperty("url");
-
-		if (appUrl != null)
-			return appUrl;
-		else
-			throw new RuntimeException("please specify appUrl in config");
-
-	}
-
-	public String defaultBrowser() {
-		System.out.println("The browser does");
-		String browserDef = properties.getProperty("defaultBrowser");
-
-		if (browserDef != null)
-			return browserDef;
-		else
-			throw new RuntimeException("please specify browserDef in config");
-
+		return EExplanations;
 	}
 
 }
